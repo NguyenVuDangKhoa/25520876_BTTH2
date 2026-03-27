@@ -8,7 +8,7 @@ int UCLN(int a, int b)
     b = abs(b);
     if (b == 0)
         return a;
-    return UCLN(b, a % b);
+	return UCLN(b, a % b); // Sử dụng đệ quy để tính UCLN, nếu b bằng 0 thì UCLN là a, ngược lại ta gọi đệ quy với b và phần dư của a chia cho b
 
 }
 void PhanSo::Nhap() {
@@ -20,7 +20,7 @@ void PhanSo::Nhap() {
         cin >> iMau;
     }
 }
-void PhanSo::Xuat() {
+void PhanSo::Xuat() { // Xuất phân số dưới dạng "tử/mẫu", VD : 1/2, 3/4, 5/6
     cout << iTu;
     cout << "/";
     cout << iMau;
@@ -61,31 +61,35 @@ void PhanSo::RutGon() {
 
 PhanSo PhanSo:: TinhTong(PhanSo a){
     PhanSo kq;
+	// Tính tổng của hai phân số bằng cách quy đồng mẫu số, sau đó cộng tử số lại với nhau, VD : 1/2 + 1/3 = (1*3 + 1*2) / (2*3) = 5/6
     kq.iMau = a.iMau * iMau;
     kq.iTu = (iTu * a.iMau) + (a.iTu * iMau);
-    kq.RutGon();
-    return kq;
+	kq.RutGon(); // Sau khi tính tổng, ta sẽ rút gọn phân số kết quả bằng cách gọi hàm RutGon() để tìm ước chung lớn nhất của tử số và mẫu số, sau đó chia cả tử số và mẫu số cho ước chung lớn nhất đó để được phân số tối giản
+	return kq; // Trả về phân số kết quả sau khi đã được rút gọn
 }
 PhanSo PhanSo::TinhHieu(PhanSo a) {
     PhanSo kq;
+	// Tính hiệu của hai phân số bằng cách quy đồng mẫu số, sau đó trừ tử số của phân số thứ hai cho tử số của phân số thứ nhất, VD : 1/2 - 1/3 = (1*3 - 1*2) / (2*3) = 1/6
     kq.iMau = a.iMau * iMau;
     kq.iTu = (iTu * a.iMau) - (a.iTu * iMau);
-    kq.RutGon();
-    return kq;
+	kq.RutGon(); // Sau khi tính hiệu, ta sẽ rút gọn phân số kết quả bằng cách gọi hàm RutGon() để tìm ước chung lớn nhất của tử số và mẫu số, sau đó chia cả tử số và mẫu số cho ước chung lớn nhất đó để được phân số tối giản
+	return kq;// Trả về phân số kết quả sau khi đã được rút gọn
 }
 PhanSo PhanSo::TinhNhan(PhanSo a) {
     PhanSo kq;
+	// Tính tích của hai phân số bằng cách nhân tử số của hai phân số với nhau để được tử số của kết quả, và nhân mẫu số của hai phân số với nhau để được mẫu số của kết quả, VD : 1/2 * 1/3 = (1*1) / (2*3) = 1/6
     kq.iMau = a.iMau * iMau;
     kq.iTu = a.iTu * iTu;
-    kq.RutGon();
-    return kq;
+	kq.RutGon(); // Sau khi tính tích, ta sẽ rút gọn phân số kết quả bằng cách gọi hàm RutGon() để tìm ước chung lớn nhất của tử số và mẫu số, sau đó chia cả tử số và mẫu số cho ước chung lớn nhất đó để được phân số tối giản
+	return kq; // Trả về phân số kết quả sau khi đã được rút gọn
 }
 PhanSo PhanSo:: TinhThuong(PhanSo a) {
     PhanSo kq;
+	// Tính thương của hai phân số bằng cách nhân tử số của phân số thứ nhất với mẫu số của phân số thứ hai để được tử số của kết quả, và nhân mẫu số của phân số thứ nhất với tử số của phân số thứ hai để được mẫu số của kết quả, VD : 1/2 / 1/3 = (1*3) / (2*1) = 3/2
     kq.iMau =iMau*a.iTu;
     kq.iTu = iTu*a.iMau;
-    kq.RutGon();
-    return kq;
+	kq.RutGon(); // Sau khi tính thương, ta sẽ rút gọn phân số kết quả bằng cách gọi hàm RutGon() để tìm ước chung lớn nhất của tử số và mẫu số, sau đó chia cả tử số và mẫu số cho ước chung lớn nhất đó để được phân số tối giản
+	return kq; // Trả về phân số kết quả sau khi đã được rút gọn
 }
 void PhanSo::SoSanh(PhanSo a) {
 	PhanSo kq = TinhHieu(a); // Tính hiệu của hai phân số, nếu kết quả là phân số âm thì phân số hiện tại nhỏ hơn phân số a, nếu kết quả là phân số dương thì phân số hiện tại lớn hơn phân số a, nếu kết quả là phân số bằng 0 thì hai phân số bằng nhau
