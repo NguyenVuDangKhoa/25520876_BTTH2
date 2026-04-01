@@ -7,10 +7,10 @@ public:
 		void Nhap();
 		void Xuat();
 		void RutGon();
-		PhanSo TinhTong(PhanSo a);
-		PhanSo TinhHieu(PhanSo a);
-		PhanSo TinhNhan(PhanSo a);
-		PhanSo TinhThuong(PhanSo a);
+		PhanSo Tong(PhanSo a);
+		PhanSo Hieu(PhanSo a);
+		PhanSo Nhan(PhanSo a);
+		PhanSo Thuong(PhanSo a);
 		void SoSanh(PhanSo a);
 
 	
