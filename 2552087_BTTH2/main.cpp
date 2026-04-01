@@ -20,10 +20,10 @@ int main() {
     b.Xuat();
 
     // Tính toán
-    PhanSo tong = a.TinhTong(b);
-    PhanSo hieu = a.TinhHieu(b);
-    PhanSo tich = a.TinhNhan(b);
-    PhanSo thuong = a.TinhThuong(b);
+    PhanSo tong = a.Tong(b);
+    PhanSo hieu = a.Hieu(b);
+    PhanSo tich = a.Nhan(b);
+    PhanSo thuong = a.Thuong(b);
 
     cout << "\n\nTong: ";
     tong.Xuat();
